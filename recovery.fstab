@@ -24,6 +24,8 @@
 /efsg          emmc     /dev/block/bootdevice/by-name/fsg                       flags=backup=1;subpartitionof=/efs1
 /splash        emmc     /dev/block/bootdevice/by-name/splash                    flags=display="Boot Logo";backup=1;flashimg=1
 /persist       ext4     /dev/block/bootdevice/by-name/persist                   flags=display="Persist"
+/product       ext4     /dev/block/bootdevice/by-name/cust                      flags=display="Product";wipeingui
+/product_image emmc     /dev/block/bootdevice/by-name/cust                      flags=display="Product Image";backup=1;flashimg=1
 /vbmeta_image  emmc     /dev/block/bootdevice/by-name/vbmeta                    flags=display="Vbmeta";flashimg=1
 
 # Removable storage
