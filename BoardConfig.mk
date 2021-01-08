@@ -78,6 +78,11 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 BOARD_AVB_ENABLE := true
 BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
+#Init
+TARGET_INIT_VENDOR_LIB := libinit_violet
+TARGET_RECOVERY_DEVICE_MODULES := libinit_violet
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -107,6 +112,10 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_FBE := true
+TW_INCLUDE_CRYPTO_FBE := true
+TARGET_HW_DISK_ENCRYPTION := true
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
@@ -116,7 +125,6 @@ TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
-TW_INCLUDE_FBE := true
 TW_EXCLUDE_SUPERSU := true
 TW_DEFAULT_LANGUAGE := en
 TW_NO_LEGACY_PROPS := true
@@ -137,9 +145,6 @@ PLATFORM_VERSION := 16.1.0
 
 # Extra Tags I can't list
 AB_OTA_UPDATER := false
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
-TW_INCLUDE_CRYPTO_FBE := true
 TW_USE_QCOM_HAPTICS_VIBRATOR := true
 TW_USE_LEDS_HAPTICS := true
 TW_INCLUDE_FUSE_EXFAT := true
